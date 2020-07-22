@@ -19,11 +19,21 @@ export default function App() {
     setTeamMembers([...teamMembers, newMember]);
   }
 
+  function deleteMember(member) {
+
+  }
+
+  function updateMember(member) {
+
+  }
+
   return (
     <ThemeProvider theme={darkTheme}>
       <Paper style={{height: "100vh"}}>
         <Topbar addTeamMember={addTeamMember}/>
-        <MembersDisplay teamMembers={teamMembers}/>
+        <MembersDisplay deleteMember={deleteMember}
+                        teamMembers={teamMembers}
+                        updateMember={updateMember}/>
       </Paper>
     </ThemeProvider>
   );
