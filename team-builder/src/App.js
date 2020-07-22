@@ -4,6 +4,7 @@ import { Paper, Typography } from '@material-ui/core';
 import './App.css';
 
 import Topbar from './Topbar';
+import MembersDisplay from './MembersDisplay';
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -22,9 +23,10 @@ export default function App() {
     <ThemeProvider theme={darkTheme}>
       <Paper style={{height: "100vh"}}>
         <Topbar addTeamMember={addTeamMember}/>
+        <MembersDisplay teamMembers={teamMembers}/>
       </Paper>
     </ThemeProvider>
   );
 }
 
-//  LocalWords:  Topbar
+//  LocalWords:  Topbar MembersDisplay
