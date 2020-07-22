@@ -59,17 +59,20 @@ export default function EntryDialog (props) {
                   labelId='entry-dialog-select'
                   onChange={(event) => processInput('role', event)}
                   value={entryValue.role}>
-            {roles.map((role) => <MenuItem value={role}>{role}</MenuItem>)}
+            {roles.map((role) => <MenuItem key={role}
+                                           value={role}>
+                                   {role}
+                                 </MenuItem>)}
           </Select>
         </FormControl>
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>
-            Cancel
-          </Button>
+          Cancel
+        </Button>
         <Button onClick={submit} >
-            Submit
-          </Button>
+          Submit
+        </Button>
       </DialogActions>
     </Dialog>
   );
