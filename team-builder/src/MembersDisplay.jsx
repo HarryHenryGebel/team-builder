@@ -26,7 +26,7 @@ export default function MembersDisplay (props) {
         </TableHead>
         <TableBody>
           {teamMembers.map((member) => (
-            <TableRow>
+            <TableRow key={member.id}>
               <TableCell>{member.name}</TableCell>
               <TableCell>{member.email}</TableCell>
               <TableCell>{member.role}</TableCell>
