@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { Paper, Typography } from '@material-ui/core';
+import { Paper } from '@material-ui/core';
 import './App.css';
 
 import Topbar from './Topbar';
