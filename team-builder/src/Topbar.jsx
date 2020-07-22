@@ -12,7 +12,7 @@ export default function Topbar (props) {
         {addTeamMember} = props;
 
   return(
-    <AppBar>
+    <AppBar position="sticky">
           <Toolbar>
             <IconButton onClick={() => setIsDialogOpen(true)}>
               <AddIcon/>
