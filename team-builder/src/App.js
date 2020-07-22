@@ -12,11 +12,16 @@ const darkTheme = createMuiTheme({
 });
 
 export default function App() {
+  const [teamMembers, setTeamMembers] = useState([]);
+
+  function addTeamMember(newMember) {
+    setTeamMembers([...teamMembers, newMember]);
+  }
 
   return (
     <ThemeProvider theme={darkTheme}>
       <Paper style={{height: "100vh"}}>
-        <Topbar/>
+        <Topbar addTeamMember={addTeamMember}/>
       </Paper>
     </ThemeProvider>
   );
