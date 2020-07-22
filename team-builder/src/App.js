@@ -24,8 +24,9 @@ export default function App() {
       member => member.id !== memberToDelete.id));
   }
 
-  function updateMember(member) {
-
+  function updateMember(updatedMember) {
+    setTeamMembers(teamMembers.map(
+      member => updatedMember.id === member.id ? updatedMember : member));
   }
 
   return (

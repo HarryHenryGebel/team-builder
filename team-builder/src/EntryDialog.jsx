@@ -16,7 +16,12 @@ import TeamMember from './TeamMember';
 const roles =['Lead', 'Designer', 'Front End', 'Back End'];
 
 export default function EntryDialog (props) {
-  const {addTeamMember, isEdit, isOpen, setIsOpen} = props,
+  const {addTeamMember,
+         isEdit,
+         isOpen,
+         member,
+         setIsOpen,
+         updateMember} = props,
         emptyValue = {name: '', email: '', role: ''},
         [entryValue, setEntryValue] = useState(emptyValue);
 
@@ -30,10 +35,18 @@ export default function EntryDialog (props) {
   }
 
   function submit() {
-    addTeamMember(new TeamMember(entryValue.name,
-                                 entryValue.email,
-                                 entryValue.role));
+    if (isEdit)
+      updateMember(entryValue);
+    else
+      addTeamMember(new TeamMember(entryValue.name,
+                                   entryValue.email,
+                                   entryValue.role));
     onClose();
+  }
+
+  // Prevent setting member when dialog is closed, prevent infinite loop
+  if (isEdit && isOpen && entryValue.id === undefined) {
+    setEntryValue({...member});
   }
 
   return (
@@ -51,7 +64,8 @@ export default function EntryDialog (props) {
                    margin='normal'
                    onChange={(event) => processInput('email', event)}
                    required
-                   type='email'/>
+                   type='email'
+                   value={entryValue.email}/>
         <Divider orientation='vertical' flexItem />
         <FormControl fullWidth>
           <InputLabel id='entry-dialog-select' required>Role</InputLabel>

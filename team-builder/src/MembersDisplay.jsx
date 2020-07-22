@@ -23,8 +23,8 @@ export default function MembersDisplay (props) {
     return (null);
 
   function showDialog(member) {
-    setIsDialogOpen(true);
     setMember(member);
+    setIsDialogOpen(true);
   }
 
   return (
