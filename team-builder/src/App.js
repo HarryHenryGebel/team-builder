@@ -19,8 +19,9 @@ export default function App() {
     setTeamMembers([...teamMembers, newMember]);
   }
 
-  function deleteMember(member) {
-
+  function deleteMember(memberToDelete) {
+    setTeamMembers(teamMembers.filter(
+      member => member.id !== memberToDelete.id));
   }
 
   function updateMember(member) {
